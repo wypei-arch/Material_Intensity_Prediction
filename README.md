@@ -1,6 +1,6 @@
 # Material Intensity Predictor Web App
 
-This web app serves predictions from the current **TwoStageConditionalModel** pipeline.
+This web app serves predictions from the current **ThreeStageConditionalModel** pipeline. The App can be accessed here: https://predictmi.streamlit.app/
 
 Model internals:
 - Stage 1: classifier-chain `XGBClassifier` per material with Platt calibration (`CalibratedClassifierCV`) → `p_presence`
