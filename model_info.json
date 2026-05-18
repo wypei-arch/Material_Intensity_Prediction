@@ -1,10 +1,10 @@
 {
-  "model_type": "TwoStageConditionalModel",
-  "stage1": "XGBClassifier per-material (binary:logistic, Platt-calibrated via CalibratedClassifierCV)",
-  "stage2": "XGBRegressor per-material quantile regression (reg:quantileerror, quantiles=[0.05,0.50,0.95], log-space)",
-  "joint_layer": "MultivariateNormal with group-specific covariance (residual inspection only)",
-  "group_cols": [
-    "Primary Code"
+  "X_cols": [
+    "Construction period",
+    "Typology",
+    "Primary Code",
+    "Hybrid Structure",
+    "Country"
   ],
   "y_cols": [
     "Concrete",
@@ -13,34 +13,18 @@
     "Wood",
     "Brick"
   ],
-  "X_cols": [
-    "Construction period",
-    "Typology",
-    "Primary Code",
-    "Hybrid Structure",
-    "Country"
-  ],
-  "stage1_xgb_params": {
-    "n_estimators": 119,
-    "max_depth": 7,
-    "learning_rate": 0.08549427615942543,
-    "subsample": 0.9746109233213803,
-    "colsample_bytree": 0.6885715333668371,
-    "reg_alpha": 0.001555351458336401,
-    "reg_lambda": 0.000907549783015129,
-    "random_state": 42,
-    "objective": "binary:logistic",
-    "verbosity": 0
+  "SEED": 42,
+  "LOW_OBS_THRESHOLD": 30,
+  "n_observed_train": {
+    "Concrete": 1385,
+    "Glass": 886,
+    "Steel": 1638,
+    "Wood": 1452,
+    "Brick": 1200
   },
-  "stage2_xgb_params": {
-    "n_estimators": 119,
-    "max_depth": 7,
-    "learning_rate": 0.08549427615942543,
-    "subsample": 0.9746109233213803,
-    "colsample_bytree": 0.6885715333668371,
-    "reg_alpha": 0.001555351458336401,
-    "reg_lambda": 0.000907549783015129,
-    "random_state": 42,
-    "verbosity": 0
+  "data_split": {
+    "n_train": 1799,
+    "n_val": 385,
+    "n_test": 386
   }
 }
